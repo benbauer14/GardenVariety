@@ -1,0 +1,30 @@
+.messagesMain{
+    height: 90%;
+    max-height: 90%;
+    overflow-y: scroll; 
+}
+
+.messageReplyMain{
+    height: 10%
+}
+
+.chatUserMain{
+    height: 70vh;
+    max-height: 70vh;
+}
+
+.chatInput{
+    margin-top: 11px;
+    width: 73vw;
+}
+
+.messageReplyMain Button{
+    width: 10%;
+    border: 1px solid black;
+    margin: 2px;
+    margin-top: 7px
+}
+
+.messageReplyMain{
+    border: 1px solid black;
+}

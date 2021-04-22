@@ -1,0 +1,23 @@
+.registrationForm label{
+    font-size: 15px;
+
+}
+
+.registrationForm{
+    display: grid;
+    grid-template-columns: 25% auto;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.bioInput{
+    height: 100px;
+    width: 80%;
+}
+
+.registrationForm input{
+    width: 80%;
+}
+h3{
+    text-align: center;
+}

@@ -1,0 +1,10 @@
+.searchdiv{
+    width: 90%;
+    margin-left: 5%;
+}
+
+.searchdiv Button{
+    width: 100%;
+    border: 1px solid black;
+    margin-top: 5px;
+}
