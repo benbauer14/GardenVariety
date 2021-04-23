@@ -19,7 +19,7 @@ function Search() {
   const history = useHistory()
 
   const submitSearch = () => {
-    dispatch({type: 'SEARCH_LISTINGS', veg: veg, trade: trade, buy: buy, when: when})
+    dispatch({type: 'SEARCH_LISTINGS', veg: veg, trade: trade, buy: buy, when})
     history.push('/searchresults')
   }
 

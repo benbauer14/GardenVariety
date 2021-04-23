@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { actionChannel, put, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest } from 'redux-saga/effects';
 
 
 // worker Saga: will be fired on "FETCH_USER" actions
@@ -19,7 +19,6 @@ function* fetchMessages(action) {
     // If a user is logged in, this will return messages from 
     // to and from the user
     const response = yield axios.get('/api/chat/?user=' + action.payload, config);
-    console.log(response)
     // now that the session has given us a user object
     // with an id and username set the client-side user object to let
     // the client-side code know the user is logged in

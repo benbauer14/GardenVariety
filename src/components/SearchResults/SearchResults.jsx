@@ -1,10 +1,40 @@
-import { useEffect } from "react";
+import './SearchResults.css'
 import { useSelector } from "react-redux";
 
 
 function SearchResults () {
     const searchlisting = useSelector((store) => store.searchlisting);
     const user = useSelector((store => store.user))
+
+    const forSale = (listing) =>{
+        if(listing.for_sale == true){
+            return(
+                <>
+                <p>For Sale: Yes</p>
+                <p>Price: ${listing.price.toFixed(2)}</p>
+                </>
+            )
+            }else{
+            return(
+                <p>For Sale: No</p>
+            )
+            } 
+    }
+    const forTrade = (listing) =>{
+        if(listing.trade == true){
+            return(
+                <>
+                <p>Trade: Yes</p>
+                <p>Item: {listing.trade_item}</p>
+                </>
+            )
+            }else{
+            return(
+                <p>Trade: No</p>
+            )
+            } 
+    }
+
 
     const checkLoad = () =>{
         //checks if data is available. If not, it displays loading. Once data is available, the data is displayed. 
@@ -14,26 +44,29 @@ function SearchResults () {
         } else{
             return(
                 <> 
+                <div className="searchResultsMain">
+                    <div className="searchResults">
                     {searchlisting.map(listing => {
                             return(
                                 <div className="searchListingResult">
-                                    <div className="userAvatar">
-                                        {/* <FaceIcon /> */}
-                                    </div>
                                     <div className="itemInfo">
-                                        <p>Gardener: {listing.username}</p>
-                                        <p>Item: {listing.vegetable}</p>
-                                        <p></p>
+                                        <h4>{listing.vegetable}</h4>
                                     </div>
-                                    <div className="chatTrash">
-                                        {/* <DeleteIcon fontSize="large"/> */}
-                
+                                    <div></div>
+                                    <div className="itemSale">
+                                        {forSale(listing)}          
                                     </div>
+                                    <div className="itemTrade">
+                                        {forTrade(listing)}          
+                                    </div>
+                                    <div><></></div>
                                 </div>
                             )
+                    
     })}
             
-                
+                    </div>
+                </div>
                 </>
         )
         }

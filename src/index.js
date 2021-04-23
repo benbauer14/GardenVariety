@@ -29,6 +29,7 @@ const store = createStore(
   // adds all middleware to our project including saga and logger
   applyMiddleware(...middlewareList),
 );
+export default store;
 
 // tells the saga middleware to use the rootSaga
 // rootSaga contains all of our other sagas
@@ -42,3 +43,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('react-root'),
 );
+

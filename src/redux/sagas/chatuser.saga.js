@@ -19,7 +19,7 @@ function* fetchUserChat(action) {
     // with an id and username set the client-side user object to let
     // the client-side code know the user is logged in
     yield put({ type: 'SET_USERCHAT', payload: response.data.rows });
-
+    yield put({type: 'FETCH_MESSAGES', payload: action.user})
   } catch (error) {
     console.log('Messages get request failed', error);
   }

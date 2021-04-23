@@ -1,0 +1,29 @@
+.searchResults{
+    height: 100%;
+    max-height: 100%;
+    overflow-y: scroll;
+    border: solid black 1px; 
+}
+.searchResultsMain{
+    height: 80vh;
+    max-height: 80vh;
+}
+.searchResults p{
+    font-size: 15px;
+}
+
+.searchListingResult{
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 25% 40% auto;
+    align-items: center;
+    width: 100%;
+    border: solid 1px black;
+}
+
+.itemInfo{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
