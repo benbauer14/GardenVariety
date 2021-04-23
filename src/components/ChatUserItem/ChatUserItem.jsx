@@ -7,6 +7,8 @@ function ChatUserItem () {
     const user = useSelector((store => store.user))
 
     const checkLoad = () =>{
+        //checks if data is available. If not, it displays loading. Once data is available, the data is displayed. 
+        //deals with data races in React.
         if(!Array.isArray(chatuser)){
             return(<p>Loading...</p>)
         } else{
