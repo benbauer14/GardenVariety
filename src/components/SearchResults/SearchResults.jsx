@@ -48,7 +48,7 @@ function SearchResults () {
                     <div className="searchResults">
                     {searchlisting.map(listing => {
                             return(
-                                <div className="searchListingResult">
+                                <div className="searchListingResult" onClick={() => {resultClicked(listing.id)}}>
                                     <div className="itemInfo">
                                         <h4>{listing.vegetable}</h4>
                                     </div>
