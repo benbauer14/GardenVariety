@@ -46,17 +46,17 @@ router.get('/', (req, res) => {
         }
     }
     //BROKEN
-    // if(when != "") {
-    //     if(sanitizedCount == 1){
-    //         queryText = queryText + `WHERE "when_posted" > (CURRENT_DATE - $` + sanitizedCount + ")"
-    //         sanitizedCount += 1
-    //         sanitizedArray.push(Number(when))
-    //     }else{
-    //         sanitizedCount += 1
-    //         queryText = queryText + ` AND "when_posted" > (CURRENT_DATE - '$` + sanitizedCount + ")"
-    //         sanitizedArray.push(Number(when))
-    //     }
-    // }
+    if(when != "") {
+        if(sanitizedCount == 1){
+            queryText = queryText + `WHERE "when_posted" > $` + sanitizedCount
+            sanitizedCount += 1
+            sanitizedArray.push(when)
+        }else{
+            sanitizedCount += 1
+            queryText = queryText + ` AND "when_posted" > $` + sanitizedCount
+            sanitizedArray.push(when)
+        }
+    }
     console.log(queryText )
     console.log(sanitizedArray)
     pool.query(queryText + ";", sanitizedArray).then((response) => {

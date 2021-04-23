@@ -7,6 +7,7 @@ import MenuItem from '@material-ui/core/MenuItem'
 import './Search.css'
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
+import moment from 'moment'
 
 
 function Search() {
@@ -22,7 +23,9 @@ function Search() {
     dispatch({type: 'SEARCH_LISTINGS', veg: veg, trade: trade, buy: buy, when})
     history.push('/searchresults')
   }
-
+  const dateSubtract = (numofdays) => {
+    return(moment().subtract(numofdays, 'days').format('L'))
+  }
   return (
     <div className="searchdiv">
       <Autocomplete
@@ -63,9 +66,9 @@ function Search() {
               <label>When Posted?:
               <select id="when" onChange={(event) => setWhen(event.target.value)}>
                 <option value=""></option>
-                <option value="3">last 3 days</option>
-                <option value="7">last 7 days</option>
-                <option value="14">last 14 days</option>
+                <option value={dateSubtract(3)}>last 3 days</option>
+                <option value={dateSubtract(7)}>last 7 days</option>
+                <option value={dateSubtract(14)}>last 14 days</option>
               </select>
               </label>
             </p>
