@@ -21,6 +21,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import Drawer from '../Drawer/Drawer'
 import Chat from '../ChatMessenger/ChatMessenger'
 import FellowChat from '../ChatUser/ChatUser'
+import SearchResults from '../SearchResults/SearchResults'
 
 import './App.css';
 
@@ -67,6 +68,9 @@ function App() {
           </ProtectedRoute>
           <ProtectedRoute exact path ='/search'>
             <Search/>
+          </ProtectedRoute>
+          <ProtectedRoute exact path='/searchresults'>
+            <SearchResults/>
           </ProtectedRoute>
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage

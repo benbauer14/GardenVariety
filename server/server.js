@@ -12,6 +12,7 @@ const userRouter = require('./routes/user.router');
 const chatRouter = require('./routes/chat.router.js')
 const unreadRouter = require ('./routes/unread.router')
 const chatuserRouter =require ('./routes/chatuser.router')
+const searchRouter = require ('./routes/search.router')
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -29,6 +30,7 @@ app.use('/api/user', userRouter);
 app.use('/api/chat', chatRouter);
 app.use('/api/unread', unreadRouter);
 app.use('/api/gardenerchat', chatuserRouter);
+app.use('/api/search', searchRouter)
 
 // Serve static files
 app.use(express.static('build'));

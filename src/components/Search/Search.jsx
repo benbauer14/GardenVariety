@@ -5,12 +5,24 @@ import Button from '@material-ui/core/Button'
 import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
 import './Search.css'
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router';
 
 
 function Search() {
   const [veg, setVeg] = useState("")
   const [trade, setTrade] = useState("")
+  const [buy, setBuy] = useState("")
   const [when, setWhen] = useState("")
+
+  const dispatch = useDispatch()
+  const history = useHistory()
+
+  const submitSearch = () => {
+    dispatch({type: 'SEARCH_LISTINGS', veg: veg, trade: trade, buy: buy, when: when})
+    history.push('/searchresults')
+  }
+
   return (
     <div className="searchdiv">
       <Autocomplete
@@ -21,7 +33,6 @@ function Search() {
               renderInput={(params) => (
                 <TextField
                   {...params}
-
                   label="Search"
                   margin="normal"
                   variant="outlined"
@@ -50,7 +61,7 @@ function Search() {
             </p>
             <p>
               <label>When Posted?:
-              <select id="buy" onChange={(event) => setWhen(event.target.value)}>
+              <select id="when" onChange={(event) => setWhen(event.target.value)}>
                 <option value=""></option>
                 <option value="3">last 3 days</option>
                 <option value="7">last 7 days</option>
@@ -58,7 +69,7 @@ function Search() {
               </select>
               </label>
             </p>
-      <Button onClick={() => alert(when)}>ASDF</Button>
+      <Button onClick={() => submitSearch()}>ASDF</Button>
     </div>
   );
 }
