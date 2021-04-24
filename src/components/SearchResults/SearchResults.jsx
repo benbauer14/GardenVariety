@@ -10,13 +10,12 @@ function SearchResults () {
         if(listing.for_sale == true){
             return(
                 <>
-                <p>For Sale: Yes</p>
-                <p>Price: ${listing.price.toFixed(2)}</p>
+                <img src='/images/sale.png'/>
                 </>
             )
             }else{
             return(
-                <p>For Sale: No</p>
+                <img src='/images/notsale.png'/>
             )
             } 
     }
@@ -24,13 +23,12 @@ function SearchResults () {
         if(listing.trade == true){
             return(
                 <>
-                <p>Trade: Yes</p>
-                <p>Item: {listing.trade_item}</p>
+                <img src='/images/trade.png'/>
                 </>
             )
             }else{
             return(
-                <p>Trade: No</p>
+                <img src='/images/nottrade.png'/>
             )
             } 
     }
@@ -52,7 +50,7 @@ function SearchResults () {
                                     <div className="itemInfo">
                                         <h4>{listing.vegetable}</h4>
                                     </div>
-                                    <div></div>
+
                                     <div className="itemSale">
                                         {forSale(listing)}          
                                     </div>

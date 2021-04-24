@@ -8,13 +8,10 @@ import store from '../../../src/index'
 
 function ChatUser (){
     const user = useSelector((store) => store.user);
-    let chatuser = useSelector((store) => store.chatuser);
+    const chatuser = useSelector((store) => store.chatuser);
     const dispatch = useDispatch()
-    useEffect(() => {getMessages();}, []);
     const [message, setMessage] = useState("")
-    const state = store.getState()
-
-
+    useEffect(() => {getMessages();}, []);
 
     const getMessages = () =>{
         dispatch({type:'FETCH_MESSAGES', payload: user.username})
@@ -32,7 +29,6 @@ function ChatUser (){
     const postReply = () => {
         dispatch({type: 'POST_MESSAGE', fellow: fellowGardener(chatuser[0]), user: user.username, message: message})
         setMessage("")
-        console.log(state.messages)
     }
 
 return(

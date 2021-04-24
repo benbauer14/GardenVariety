@@ -9,7 +9,9 @@ router.get('/', (req, res) => {
   // GET chat messages
     const user = req.query.user
     const fellow = req.query.fellow
-    const queryText = `SELECT * FROM chat WHERE "toUser"=$1 AND "fromUser"=$2 OR "toUser"=$2 AND "fromUser"=$1 ORDER BY "whenSent" DESC`
+    console.log(user)
+    console.log(fellow)
+    const queryText = `SELECT * FROM chat WHERE "toUser"=$1 AND "fromUser"=$2 OR "fromUser"=$1 AND "toUser"=$2 ORDER BY "whenSent" DESC`
     pool.query(queryText, [user, fellow]).then((response) => {
         res.send(response)
     }).catch((err) => {

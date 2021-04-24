@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChatIcon from '@material-ui/icons/Chat';
-import {Link, Badge} from '@material-ui/core'
+import { Badge} from '@material-ui/core'
 import { useHistory } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 

@@ -15,7 +15,7 @@
 .searchListingResult{
     display: grid;
     grid-template-rows: auto auto;
-    grid-template-columns: 25% 40% auto;
+    grid-template-columns: 15% 15% auto;
     align-items: center;
     width: 100%;
     border: solid 1px black;
@@ -26,4 +26,9 @@
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 1;
+}
+
+.itemSale img, .itemTrade img{
+    width:35px;
+    height: 35px;
 }
