@@ -115,15 +115,15 @@ function getModalStyle() {
         setTrade(searchlisting[listingID].trade)
         setTradeItem(searchlisting[listingID].trade_item)
         setInfo(searchlisting[listingID].info)
-        setWhen(searchlisting[listingID].when_posted)
 
         //set values for trade and for sale
         if(searchlisting[listingID].for_sale === true){
             setitemForSale('Yes')
+            const formattedPrice = Number(searchlisting[listingID].price).toFixed(2)
             setSaleInfo(
                 <>
                 <p>For Sale: Yes</p>
-                <p>Price: {searchlisting[listingID].price}</p>
+                <p>Price: ${formattedPrice}</p>
                 </>
             )
         }else{
@@ -151,6 +151,9 @@ function getModalStyle() {
             )
         }
 
+        //format date
+        let dbDate = searchlisting[listingID].when_posted
+        setWhen(dbDate.slice(5,7) + "/" + dbDate.slice(8,10) + "/" + dbDate.slice(0,4))
 
         handleOpen()
     }
