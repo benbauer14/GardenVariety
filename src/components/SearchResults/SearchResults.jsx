@@ -1,5 +1,6 @@
 import './SearchResults.css'
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from 'react-router';
 
 
 function SearchResults () {
@@ -32,7 +33,12 @@ function SearchResults () {
             )
             } 
     }
-
+    const dispatch = useDispatch()
+    const history = useHistory()
+    const resultClicked = (listingID) => {
+        dispatch({ type: 'FETCH_LISTING', payload: listingID})
+        history.push('/listinginfo')
+    }
 
     const checkLoad = () =>{
         //checks if data is available. If not, it displays loading. Once data is available, the data is displayed. 
@@ -49,6 +55,7 @@ function SearchResults () {
                                 <div className="searchListingResult" onClick={() => {resultClicked(listing.id)}}>
                                     <div className="itemInfo">
                                         <h4>{listing.vegetable}</h4>
+                                        <h4>{JSON.stringify(listing)}</h4>
                                     </div>
 
                                     <div className="itemSale">

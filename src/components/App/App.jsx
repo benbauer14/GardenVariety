@@ -22,6 +22,7 @@ import Drawer from '../Drawer/Drawer'
 import Chat from '../ChatMessenger/ChatMessenger'
 import FellowChat from '../ChatUser/ChatUser'
 import SearchResults from '../SearchResults/SearchResults'
+import ListingInfo from '../ListingInfo/ListingInfo'
 
 import './App.css';
 
@@ -65,6 +66,9 @@ function App() {
           </ProtectedRoute>
           <ProtectedRoute exact path ='/fellowchat'>
             <FellowChat/>
+          </ProtectedRoute>
+          <ProtectedRoute exact path ='/listinginfo'>
+            <ListingInfo/>
           </ProtectedRoute>
           <ProtectedRoute exact path ='/search'>
             <Search/>

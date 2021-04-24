@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
     let sanitizedArray = []
     let sanitizedCount = 1
     //build starting query and append on additional query info if provided
-    let queryText = `SELECT *, users.username FROM "usermarketitem" JOIN "users" ON usermarketitem.user_id = users.id `
+    let queryText = `SELECT usermarketitem.id, vegetable, trade, trade_item, for_sale, price, info, when_posted, users.username FROM "usermarketitem" JOIN "users" ON usermarketitem.user_id = users.id `
     if(veg != "") {
         if(sanitizedCount == 1){
             queryText = queryText + `WHERE "vegetable" LIKE $` + sanitizedCount
@@ -45,7 +45,7 @@ router.get('/', (req, res) => {
             sanitizedArray.push(buy)
         }
     }
-    //BROKEN
+    //use material UI to determine date
     if(when != "") {
         if(sanitizedCount == 1){
             queryText = queryText + `WHERE "when_posted" > $` + sanitizedCount
@@ -57,8 +57,6 @@ router.get('/', (req, res) => {
             sanitizedArray.push(when)
         }
     }
-    console.log(queryText )
-    console.log(sanitizedArray)
     pool.query(queryText + ";", sanitizedArray).then((response) => {
         res.send(response);
     }).catch((err) => {
