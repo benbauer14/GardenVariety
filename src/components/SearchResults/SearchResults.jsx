@@ -37,7 +37,8 @@ function getModalStyle() {
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
-
+  const [tradeInfo, setTradeInfo] = useState('')
+  const [saleInfo, setSaleInfo] = useState('')
   const [item, setItem] = useState('')
   const [gardener, setGardener]= useState('')
   const [itemforSale, setitemForSale]= useState('')
@@ -57,16 +58,15 @@ function getModalStyle() {
 
 //END MODAL CODE
 
+//display on Modal
   const body = (
     <div style={modalStyle} className={classes.paper}>
       <h4 id="simple-modal-title">Information</h4>
       <p id="simple-modal-description">
         <h4>Item: {item}</h4>
         <p>Gardener: {gardener}</p>
-        <p>For Sale: {itemforSale}</p>
-        <p>Price: {price}</p>
-        <p>Trade: {trade}</p>
-        <p>Desired trade item: {tradeItem}</p>
+        {saleInfo}
+        {tradeInfo}
         <p>Extra Info: {info}</p>
         <p>When Posted: {when}</p>
         <Button color="primary">Contact</Button>
@@ -107,6 +107,7 @@ function getModalStyle() {
     }
 
     const resultClicked = (listingID) => {
+        //grab values for clicked item for modal
         setItem(searchlisting[listingID].vegetable)
         setGardener(searchlisting[listingID].username)
         setitemForSale(searchlisting[listingID].for_sale)
@@ -115,6 +116,42 @@ function getModalStyle() {
         setTradeItem(searchlisting[listingID].trade_item)
         setInfo(searchlisting[listingID].info)
         setWhen(searchlisting[listingID].when_posted)
+
+        //set values for trade and for sale
+        if(searchlisting[listingID].for_sale === true){
+            setitemForSale('Yes')
+            setSaleInfo(
+                <>
+                <p>For Sale: Yes</p>
+                <p>Price: {searchlisting[listingID].price}</p>
+                </>
+            )
+        }else{
+            setitemForSale('No')
+            setSaleInfo(
+                <>
+                <p>For Sale: No</p>
+                </>
+            )
+        }
+        if(searchlisting[listingID].trade === true){
+            setTrade('Yes')
+            setTradeInfo (
+                <>
+                <p>Trade: Yes</p>
+                <p>Desired Trade Item: {searchlisting[listingID].trade_item}</p>
+                </>
+            )
+        }else{
+            setTrade('No')
+            setTradeInfo (
+                <>
+                <p>Trade: No</p>
+                </>
+            )
+        }
+
+
         handleOpen()
     }
 
