@@ -20,12 +20,21 @@ router.get('/', (req, res) => {
 router.post('/newmessage', (req,res) => {
     const message = req.body.message
     const fellow = req.body.fellow
-    console.log(req.body.user)
-    console.log(fellow)
     const queryText = `INSERT INTO chat ("toUser", "fromUser", "message") VALUES ($1, $2, $3)`
     pool.query(queryText, [req.body.fellow, req.body.user, req.body.message]).then((response) =>{
         res.sendStatus(201)
     }).catch((err) =>{
+        res.sendStatus(500)
+    })
+})
+
+router.put('/', (req,res) => {
+    const unread = req.query.unread
+    console.log(unread)
+    const queryText = `UPDATE "chat" SET "read"='TRUE' WHERE "id"=$1`
+    pool.query(queryText, [req.query.unread]).then((response) =>{
+        res.sendStatus(200)
+    }).catch((err) => {
         res.sendStatus(500)
     })
 })

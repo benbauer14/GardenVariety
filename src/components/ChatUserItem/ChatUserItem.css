@@ -1,0 +1,10 @@
+.chatItemToUser{
+    background-color: aqua;
+}
+.chatItemFromUser{
+    background-color: lightpink;
+}
+.chatuserHeader{
+    text-align: center;
+    font-size: 10px;
+}
