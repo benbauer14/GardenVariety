@@ -33,6 +33,7 @@ function ChatUser (){
 
 return(
     <div className="chatUserMain">
+        <div className="chatuserHeader"><p>Chat with: <b></b></p></div>
         <div className="messagesMain">
             <ChatUserItem />
         </div>
