@@ -48,6 +48,7 @@ function getModalStyle() {
   const [tradeItem, setTradeItem]  = useState('')
   const [info, setInfo] = useState('') 
   const [when, setWhen] = useState('')
+  const [buttondisplay, setButtonDisplay] = useState('')
 
   const handleOpen = () => {
     setOpen(true);
@@ -63,8 +64,13 @@ const dispatch = useDispatch()
 const history = useHistory()
 
 const contactClick = () => {
-    dispatch({type: 'FETCH_USERCHAT', payload: gardener, user: {user}.user})
-    history.push('/fellowchat')
+    if(user.user === gardener){
+        alert("You cannot message yourself!")
+    } else{
+        dispatch({type: 'FETCH_USERCHAT', payload: gardener, user: {user}.user})
+        history.push('/fellowchat')
+    }
+
 }
 
 //display on Modal
@@ -78,11 +84,14 @@ const contactClick = () => {
         {tradeInfo}
         <p>Extra Info: {info}</p>
         <p>When Posted: {when}</p>
-        <Button color="primary" onClick={() => {contactClick()}}>Contact</Button>
+        {buttondisplay}
       </p>
     </div>
   );
 
+  const deleteListing = () => {
+      return null
+  }
 
 
     const forSale = (listing) =>{
@@ -160,6 +169,19 @@ const contactClick = () => {
                 </>
             )
         }
+
+        if(searchlisting[listingID].username === user){
+            setButtonDisplay( 
+                <>
+           <p>This is your listing. Would you like to delete?</p>
+           <Button color="secondary" onClick={() => {deleteListing()}}>Delete</Button>
+           </>
+           )
+       }else{
+           setButtonDisplay(
+         <Button color="primary" onClick={() => {contactClick()}}>Contact</Button>
+           )
+       }
 
         //format date
         let dbDate = searchlisting[listingID].when_posted

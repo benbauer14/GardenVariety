@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 function ChatUserItem () {
     const chatuser = useSelector((store) => store.chatuser);
     const user = useSelector((store => store.user))
-    let unread = ""
 
     const updateUnread = (id) => {
         axios.put('/api/chat/?unread=' + id).then((response) => {
@@ -25,7 +24,6 @@ function ChatUserItem () {
 
             return(
                 <> 
-                    <div className="chatuserHeader"><p>Chat with: <b>{chatuser[0].toUser}</b></p></div>
                     {chatuser.map(message => {
                         const uglymessagedate = message.whenSent
                         const prettydate = uglymessagedate.slice(5,7) + "/" + uglymessagedate.slice(8,10) + "/" + uglymessagedate.slice(0,4)

@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ChatUserItem from '../ChatUserItem/ChatUserItem'
 import './ChatUser.css'
-import store from '../../../src/index'
 
 function ChatUser (){
     const user = useSelector((store) => store.user);
@@ -19,6 +18,9 @@ function ChatUser (){
     }
 
     const fellowGardener = (message) => {
+        if(!Array.isArray(chatuser)){
+            return(<p>Loading...</p>)
+        }
         if(message.toUser === user){
             return message.fromUser
         }else{
@@ -29,11 +31,12 @@ function ChatUser (){
     const postReply = () => {
         dispatch({type: 'POST_MESSAGE', fellow: fellowGardener(chatuser[0]), user: user.username, message: message})
         setMessage("")
+
     }
 
 return(
     <div className="chatUserMain">
-        <div className="chatuserHeader"><p>Chat with: <b></b></p></div>
+        <div className="chatuserHeader"><p>Chat with: <b>{fellowGardener(chatuser[0])}</b></p></div>
         <div className="messagesMain">
             <ChatUserItem />
         </div>
