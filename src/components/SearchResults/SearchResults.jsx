@@ -1,14 +1,15 @@
 import './SearchResults.css'
-import {useSelector } from "react-redux";
+import {useDispatch, useSelector } from "react-redux";
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button'
+import { useHistory } from 'react-router';
 
 
 function SearchResults () {
     const searchlisting = useSelector((store) => store.searchlisting);
-    const user = useSelector((store => store.user))
+    const user = useSelector((store) => store.user.username);
 
 //MODAL CODE
 function getModalStyle() {
@@ -58,6 +59,14 @@ function getModalStyle() {
 
 //END MODAL CODE
 
+const dispatch = useDispatch()
+const history = useHistory()
+
+const contactClick = () => {
+    dispatch({type: 'FETCH_USERCHAT', payload: gardener, user: {user}.user})
+    history.push('/fellowchat')
+}
+
 //display on Modal
   const body = (
     <div style={modalStyle} className={classes.paper}>
@@ -69,10 +78,11 @@ function getModalStyle() {
         {tradeInfo}
         <p>Extra Info: {info}</p>
         <p>When Posted: {when}</p>
-        <Button color="primary">Contact</Button>
+        <Button color="primary" onClick={() => {contactClick()}}>Contact</Button>
       </p>
     </div>
   );
+
 
 
     const forSale = (listing) =>{
