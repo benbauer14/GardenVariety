@@ -37,6 +37,15 @@ Grid
 .grid-col_4 {
   flex-basis: 33.33333333%;
   max-width: 33.33333333%;
+  border: 1px black solid;
+  border-radius: 15px;
+  padding-right: 15px;
+  background-color: #629a67;
+}
+
+.grid-col_4 h5{
+  text-align: center;
+  color: #fff;
 }
 
 .grid-col_5 {
@@ -77,4 +86,8 @@ Grid
 .grid-col_12 {
   flex-basis: 100%;
   max-width: 100%;
+}
+
+.container h2{
+  text-align: center;
 }

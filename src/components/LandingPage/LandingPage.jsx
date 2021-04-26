@@ -4,13 +4,14 @@ import './LandingPage.css';
 
 // CUSTOM COMPONENTS
 import RegisterForm from '../RegisterForm/RegisterForm';
+import { Box, Button } from '@material-ui/core';
 
 function LandingPage() {
-  const [heading, setHeading] = useState('Welcome');
+  const [heading, setHeading] = useState('Welcome!!!');
   const history = useHistory();
 
   const onLogin = (event) => {
-    history.push('/login');
+
   };
 
   return (
@@ -19,49 +20,24 @@ function LandingPage() {
 
       <div className="grid">
         <div className="grid-col grid-col_8">
+          <img src='/images/GardenVarietyLogo.png' alt="Garden Variety Logo"/>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-            id felis metus. Vestibulum et pulvinar tortor. Morbi pharetra lacus
-            ut ex molestie blandit. Etiam et turpis sit amet risus mollis
-            interdum. Suspendisse et justo vitae metus bibendum fringilla sed
-            sed justo. Aliquam sollicitudin dapibus lectus, vitae consequat odio
-            elementum eget. Praesent efficitur eros vitae nunc interdum, eu
-            interdum justo facilisis. Sed pulvinar nulla ac dignissim efficitur.
-            Quisque eget eros metus. Vestibulum bibendum fringilla nibh a
-            luctus. Duis a sapien metus.
-          </p>
-
-          <p>
-            Praesent consectetur orci dui, id elementum eros facilisis id. Sed
-            id dolor in augue porttitor faucibus eget sit amet ante. Nunc
-            consectetur placerat pharetra. Aenean gravida ex ut erat commodo, ut
-            finibus metus facilisis. Nullam eget lectus non urna rhoncus
-            accumsan quis id massa. Curabitur sit amet dolor nisl. Proin
-            euismod, augue at condimentum rhoncus, massa lorem semper lacus, sed
-            lobortis augue mi vel felis. Duis ultrices sapien at est convallis
-            congue.
-          </p>
-
-          <p>
-            Fusce porta diam ac tortor elementum, ut imperdiet metus volutpat.
-            Suspendisse posuere dapibus maximus. Aliquam vitae felis libero. In
-            vehicula sapien at semper ultrices. Vivamus sed feugiat libero. Sed
-            sagittis neque id diam euismod, ut egestas felis ultricies. Nullam
-            non fermentum mauris. Sed in enim ac turpis faucibus pretium in sit
-            amet nisi.
+            Garden Variety is designed to allow local gardeners the ability to trade or sell any extra fruits or veggies. 
+            There is an integrated chat functionality that allowers gardeners to interact and determine meeting times and locations. 
+            It is easy to browse the available listings and determine what is available. Listing items on the market is as simple as a few clicks. 
           </p>
         </div>
         <div className="grid-col grid-col_4">
-          <RegisterForm />
-
-          <center>
-            <h4>Already a Member?</h4>
-            <button className="btn btn_sizeSm" onClick={onLogin}>
-              Login
-            </button>
-          </center>
+            <Box>
+            <h5>New Gardener?</h5>
+            <div onClick={() => {history.push('/register')}}><Button variant="contained" color="primary">Register</Button></div>
+            </Box>
+            <Box>
+            <h5>Already a Member?</h5>
+            <div onClick={() => {history.push('/login')}}><Button variant="contained" color="primary">Login</Button></div>
+            </Box>
         </div>
-      </div>
+    </div>
     </div>
   );
 }

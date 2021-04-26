@@ -1,10 +1,32 @@
 .chatItemToUser{
-    background-color: aqua;
+    background-color: rgb(120, 167, 230);
+    margin-left: 5px;
+    margin-right: 35px;
+    margin-top: -3px;
+    margin-bottom: -3px;
+    border-radius: 30px 30px 30px 5px;
+    padding-left: 15px;
 }
+
 .chatItemFromUser{
     background-color: lightpink;
+    margin-left: 35px;
+    margin-right: 5px;
+    margin-top: -3px;
+    margin-bottom: -3px;
+    border-radius: 30px 30px 5px 30px;
+    padding-right: 15px;
+    text-align: right;
+}
+.chatItemFromUser{
+
 }
 .chatuserHeader{
     text-align: center;
-    font-size: 10px;
+    font-size: 15px;
+    border: 1px black solid
+}
+
+.chatMessage p{
+    font-size: 13px;
 }

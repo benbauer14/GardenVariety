@@ -1,6 +1,8 @@
+import { Box, Button, TextField } from '@material-ui/core';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {useSelector} from 'react-redux';
+import './LoginForm.css'
 
 function LoginForm() {
   const [username, setUsername] = useState('');
@@ -32,33 +34,33 @@ function LoginForm() {
           {errors.loginMessage}
         </h3>
       )}
-      <div>
-        <label htmlFor="username">
-          Username:
-          <input
+        <Box display="flex" justifyContent="center">
+          <TextField 
+            label="Username"
+            margin="normal"
+            variant="outlined"
             type="text"
             name="username"
             required
             value={username}
             onChange={(event) => setUsername(event.target.value)}
           />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="password">
-          Password:
-          <input
+        </Box>
+        <Box display="flex" justifyContent="center">
+          <TextField 
+            label="Password"
+            margin="normal"
+            variant="outlined"
             type="password"
             name="password"
             required
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
-        </label>
-      </div>
-      <div>
-        <input className="btn" type="submit" name="submit" value="Log In" />
-      </div>
+        </Box>
+      <Box display="flex" justifyContent="center">
+        <Button className="btn" type="submit" name="submit" color="primary">Login</Button>
+      </Box>
     </form>
   );
 }

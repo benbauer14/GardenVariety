@@ -18,6 +18,16 @@ Postgres
 
 
 BUGS LIST
-[] Chat does not autorefresh
-[x] Delete listing does not work
-[] 
+[x] Chat does not autorefresh - Dispatch was not in the correct Saga. Needed to update the action to make sure the correct data was transmitted.
+[x] Delete listing does not work - Server and app needed restart. Updates were not in sync.
+[x] Chat misidentifying the other gardener 50% of the time - Called for user instead of user.username so conditional was never met.
+[x] Formatting of Material UI items does not respond to div formatting - use <Box>
+
+ToDo
+[] Make page persistent on reload
+[x] style login
+[] style chat
+[] style new listing
+[x] style register page
+[] add profile update page
+[] add avatars
