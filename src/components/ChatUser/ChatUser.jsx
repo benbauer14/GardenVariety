@@ -21,17 +21,20 @@ function ChatUser (){
         if(!Array.isArray(chatuser)){
             return(<p>Loading...</p>)
         }
-        if(message.toUser === user){
+        if(message.toUser === user.username){
+            console.log('fellowGardener touser', message.toUser)
+            console.log('fellowGardener user', user)            
             return message.fromUser
         }else{
+            console.log('fellowGardener touser', message.toUser)
+            console.log('fellowGardener user', user)  
             return message.toUser
         }
     }
 
     const postReply = () => {
-        dispatch({type: 'POST_MESSAGE', fellow: fellowGardener(chatuser[0]), user: user.username, message: message})
+        dispatch({type: 'POST_MESSAGE', payload: fellowGardener(chatuser[0]), user: user.username, message: message})
         setMessage("")
-
     }
 
 return(

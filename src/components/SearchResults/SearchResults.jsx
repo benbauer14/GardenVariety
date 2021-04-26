@@ -63,11 +63,13 @@ function getModalStyle() {
 const dispatch = useDispatch()
 const history = useHistory()
 
-const contactClick = () => {
+const contactClick = (listingID) => {
     if(user.user === gardener){
         alert("You cannot message yourself!")
     } else{
-        dispatch({type: 'FETCH_USERCHAT', payload: gardener, user: {user}.user})
+        console.log('gardener', searchlisting[listingID].username)
+        console.log('user', user)
+        dispatch({type: 'FETCH_USERCHAT', payload: searchlisting[listingID].username, user: user})
         history.push('/fellowchat')
     }
 
@@ -181,7 +183,7 @@ const contactClick = () => {
            )
        }else{
            setButtonDisplay(
-         <Button color="primary" onClick={() => {contactClick()}}>Contact</Button>
+         <Button color="primary" onClick={() => {contactClick(listingID)}}>Contact</Button>
            )
        }
 

@@ -9,7 +9,7 @@ function* fetchUserChat(action) {
       headers: { 'Content-Type': 'application/json' },
       withCredentials: true,
     };
-
+    console.log(action)
     // the config includes credentials which
     // allow the server session to recognize the user
     // If a user is logged in, this will return messages from 
