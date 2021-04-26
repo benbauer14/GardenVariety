@@ -8,6 +8,7 @@ import chatUserSaga from './chatuser.saga';
 import newmessageSaga from './newmessage.saga'
 import searchListingSaga from './searchlisting.saga'
 import listingSaga from './listing.saga'
+import deletelistingSaga from './deletelisting.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -27,5 +28,6 @@ export default function* rootSaga() {
     newmessageSaga(),
     searchListingSaga(),
     listingSaga(),
+    deletelistingSaga(),
   ]);
 }

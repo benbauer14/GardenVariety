@@ -18,6 +18,20 @@ router.get('/', (req, res) => {
     })
 });
 
+router.delete('/', (req, res) => {
+    // GET chat messages
+      const listingid = req.query.listingid
+      console.log('in delete')
+  
+      const queryText = `DELETE FROM usermarketitem WHERE "id"=$1`
+      pool.query(queryText, [listingid]).then((response) => {
+          res.send(response)
+      }).catch((err) => {
+          res.sendStatus(500)
+          console.log(err)
+      })
+  });
+
 
 
 module.exports = router;

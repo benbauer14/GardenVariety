@@ -89,10 +89,12 @@ const contactClick = () => {
     </div>
   );
 
-  const deleteListing = () => {
-      return null
+  const deleteListing = (listingID) => {
+    if(confirm("Are you sure you would like to delete this listing?")){
+        console.log(listingID)
+        dispatch({type: 'DELETE_LISTING', payload: listingID})
+    }
   }
-
 
     const forSale = (listing) =>{
         if(listing.for_sale == true){
@@ -174,7 +176,7 @@ const contactClick = () => {
             setButtonDisplay( 
                 <>
            <p>This is your listing. Would you like to delete?</p>
-           <Button color="secondary" onClick={() => {deleteListing()}}>Delete</Button>
+           <Button color="secondary" onClick={() => {deleteListing(searchlisting[listingID].id)}}>Delete</Button>
            </>
            )
        }else{
