@@ -16,11 +16,11 @@ function LandingPage() {
 
   return (
     <div className="container">
+      <img width="200px" height="175px" src='/images/GardenVarietyLogo.png' alt="Garden Variety Logo"/>
       <h2>{heading}</h2>
 
       <div className="grid">
         <div className="grid-col grid-col_8">
-          <img src='/images/GardenVarietyLogo.png' alt="Garden Variety Logo"/>
           <p>
             Garden Variety is designed to allow local gardeners the ability to trade or sell any extra fruits or veggies. 
             There is an integrated chat functionality that allowers gardeners to interact and determine meeting times and locations. 
