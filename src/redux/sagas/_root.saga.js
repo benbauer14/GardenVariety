@@ -9,6 +9,7 @@ import newmessageSaga from './newmessage.saga'
 import searchListingSaga from './searchlisting.saga'
 import listingSaga from './listing.saga'
 import deletelistingSaga from './deletelisting.saga';
+import newListingSaga from './newlisting.saga'
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -29,5 +30,6 @@ export default function* rootSaga() {
     searchListingSaga(),
     listingSaga(),
     deletelistingSaga(),
+    newListingSaga(),
   ]);
 }

@@ -9,19 +9,19 @@ import { useHistory } from 'react-router';
 function NewListing () {
 const [veg, setVeg] = useState("")
 const [quantity, setQuantity] = useState(0)
-const [forsale, setForSale] = useState(false)
-const [trade, setTrade] = useState(false)
+const [forsale, setForSale] = useState(true)
+const [trade, setTrade] = useState(true)
 const [tradeitem, setTradeItem] = useState("")
 const [price, setPrice] = useState("")
 const [info, setInfo] = useState("")
 
-const user = useSelector((store => store.user.username))
+const userid = useSelector((store => store.user.id))
 
 const dispatch = useDispatch()
 const history = useHistory()
 
 const submitNew = () => {
-    dispatch({type: "POST_LISTING", veg: veg, quantity: quantity, forsale: forsale, trade: trade, tradeitem: tradeitem, price: price, info: info, user: user})
+    dispatch({type: "POST_LISTING", veg: veg, quantity: quantity, forsale: forsale, trade: trade, tradeitem: tradeitem, price: price, info: info, userid: userid})
     history.push('/')
 }
 

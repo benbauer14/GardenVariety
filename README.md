@@ -18,6 +18,6 @@ Postgres
 
 
 BUGS LIST
-{}Chat does not autorefresh
-[] Delete listing does not work
+[] Chat does not autorefresh
+[x] Delete listing does not work
 [] 

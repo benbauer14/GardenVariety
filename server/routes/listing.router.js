@@ -32,6 +32,26 @@ router.delete('/', (req, res) => {
       })
   });
 
+  router.post('/newlisting', (req, res) => {
+      const user_id = req.body.userid
+      const vegetable = req.body.veg
+      const quantity = req.body.quantity
+      const trade = req.body.trade
+      const trade_item = req.body.tradeitem
+      const for_sale = req.body.forsale
+      const price = req.body.price
+      const info = req.body.info
+
+      console.log('newListing', req.body)
+  
+      const queryText = `INSERT INTO usermarketitem (user_id, vegetable, quantity, trade, trade_item, for_sale, price, info) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`
+      pool.query(queryText, [user_id, vegetable, quantity, trade, trade_item, for_sale, price, info]).then((response) => {
+          res.sendStatus(200)
+      }).catch((err) => {
+          res.sendStatus(500)
+          console.log(err)
+      })
+  });  
 
 
 module.exports = router;
