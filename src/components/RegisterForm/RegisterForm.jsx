@@ -1,3 +1,4 @@
+import { Box, Button } from '@material-ui/core';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -109,7 +110,7 @@ function RegisterForm() {
             Icon:
           </label>
         </div>
-        <div>
+        <div className="icons">
           {icons.map(icon =>{
             return(
               <>
@@ -120,7 +121,10 @@ function RegisterForm() {
         </div>
       </div>
         <div>
-          <input className="btn" type="submit" name="submit" value="Register" onClick={() => registerUser()}/>
+          <Box display="flex" justifyContent="center" className="registerBox">
+          <Button className="btn" type="submit" name="submit" onClick={() => registerUser()}>Register</Button>
+          </Box>
+          <hr></hr>
         </div>
     </>
   );

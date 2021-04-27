@@ -7,6 +7,7 @@ import unread from './unread.reducer'
 import chatuser from './chatuser.reducer'
 import searchlisting from './searchlisting.reducer'
 import listing from './listing.reducer'
+import chatters from './chatters.reducer'
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   chatuser,
   searchlisting,
   listing,
+  chatters,
 });
 
 export default rootReducer;

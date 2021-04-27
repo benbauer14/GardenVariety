@@ -64,7 +64,7 @@ const dispatch = useDispatch()
 const history = useHistory()
 
 const contactClick = (listingID) => {
-    if(user.user === gardener){
+    if(user.user === searchlisting[listingID].username){
         alert("You cannot message yourself!")
     } else{
         console.log('gardener', searchlisting[listingID].username)

@@ -8,6 +8,7 @@ import './ChatUser.css'
 function ChatUser (){
     const user = useSelector((store) => store.user);
     const chatuser = useSelector((store) => store.chatuser);
+    const chatters = useSelector((store) => store.chatters);
     const dispatch = useDispatch()
     const [message, setMessage] = useState("")
     useEffect(() => {getMessages();}, []);
@@ -21,13 +22,13 @@ function ChatUser (){
         if(!Array.isArray(chatuser)){
             return(<p>Loading...</p>)
         }
+        if(message = []){
+            return chatters.fellow
+        }
         if(message.toUser === user.username){
-            console.log('fellowGardener touser', message.toUser)
-            console.log('fellowGardener user', user)            
+         
             return message.fromUser
         }else{
-            console.log('fellowGardener touser', message.toUser)
-            console.log('fellowGardener user', user)  
             return message.toUser
         }
     }
