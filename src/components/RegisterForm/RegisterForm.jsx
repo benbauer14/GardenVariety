@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './RegisterForm.css'
 
@@ -7,9 +8,13 @@ function RegisterForm() {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [bio, setBio] = useState('');
-  const [avatar, setAvatar] = useState('');
+  const [icons, setIcons] = useState([]);
   const errors = useSelector((store) => store.errors);
+  const [selectIcon, setSelectIcon] = useState(1)
   const dispatch = useDispatch();
+
+
+  useEffect(() => {getIcons()}, []);
 
   const registerUser = (event) => {
 
@@ -20,11 +25,19 @@ function RegisterForm() {
         password: password,
         email: email,
         bio: bio,
-        avatar: avatar
+        avatar: selectIcon
       },
     });
   }; // end registerUser
 
+  const getIcons = () =>{
+    axios.get('/api/icons').then((response) => {
+      setIcons(response.data.rows)
+    }).catch((err) => {
+      console.log("Error", err)
+    })
+  }
+ 
   return (
     <>
     <h3>Welcome! Please register.</h3>
@@ -93,17 +106,17 @@ function RegisterForm() {
         </div>
         <div>
           <label htmlFor="avatar">
-            Avatar:
+            Icon:
           </label>
         </div>
         <div>
-            <input
-              type="avatar"
-              name="avatar"
-              value={avatar}
-              required
-              onChange={(event) => setAvatar(event.target.value)}
-            />
+          {icons.map(icon =>{
+            return(
+              <>
+            <img onClick={() => {setSelectIcon(icon.id)}} src={icon.path} alt={icon.avatar} />
+            </>
+            )
+          })} 
         </div>
       </div>
         <div>
