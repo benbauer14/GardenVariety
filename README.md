@@ -26,8 +26,9 @@ BUGS LIST
 ToDo
 [] Make page persistent on reload
 [x] style login
-[] style chat
+[x] style chat
 [] style new listing
+[] style search page
 [x] style register page
 [] add profile update page
-[] add avatars
+[x] add avatars

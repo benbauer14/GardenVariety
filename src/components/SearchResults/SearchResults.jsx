@@ -71,6 +71,7 @@ const contactClick = (listingID) => {
         console.log('user', user)
         dispatch({type: 'FETCH_USERCHAT', payload: searchlisting[listingID].username, user: user})
         history.push('/fellowchat')
+        handleClose()
     }
 
 }
@@ -95,6 +96,7 @@ const contactClick = (listingID) => {
     if(confirm("Are you sure you would like to delete this listing?")){
         console.log(listingID)
         dispatch({type: 'DELETE_LISTING', payload: listingID})
+        handleClose()
     }
   }
 

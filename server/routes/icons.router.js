@@ -13,4 +13,15 @@ router.get('/', (req, res) => {
     })
 });
 
+router.get('/usericon', (req, res) => {
+    console.log("usericon" + req.query.user)
+    const queryText = `SELECT path FROM "avatar" JOIN personal_info ON avatar.id = personal_info.user_avatar JOIN users ON personal_info.user_id = users.id WHERE users.username=$1`
+    pool.query(queryText, [req.query.user]).then((response) => {
+        res.send(response.rows)
+    }).catch((err) => {
+        console.log(err)
+        res.sendStatus(500)
+    })
+})
+
 module.exports = router;

@@ -114,7 +114,9 @@ function RegisterForm() {
           {icons.map(icon =>{
             return(
               <>
+            <div className="iconDiv">
             <img onClick={() => {setSelectIcon(icon.id)}} src={icon.path} alt={icon.avatar} />
+            </div>
             </>
             )
           })} 

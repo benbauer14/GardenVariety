@@ -1,22 +1,26 @@
 .chatItemToUser{
+    display:grid;
+    grid-template-columns: 20% auto 20%;
     background-color: rgb(120, 167, 230);
     margin-left: 5px;
     margin-right: 35px;
-    margin-top: -3px;
-    margin-bottom: -3px;
     border-radius: 30px 30px 30px 5px;
     padding-left: 15px;
+    margin-top: 3px;
+    margin-bottom: 3px;
 }
 
 .chatItemFromUser{
-    background-color: lightpink;
+    display:grid;
+    grid-template-columns: 20% auto 20%;
+    background-color: rgb(238, 188, 52);
     margin-left: 35px;
     margin-right: 5px;
-    margin-top: -3px;
-    margin-bottom: -3px;
     border-radius: 30px 30px 5px 30px;
     padding-right: 15px;
     text-align: right;
+    margin-top: 3px;
+    margin-bottom: 3px;
 }
 .chatItemFromUser{
 
@@ -29,4 +33,9 @@
 
 .chatMessage p{
     font-size: 13px;
+}
+
+.userAvatar{
+    margin-top: 30%;
+    filter: drop-shadow(0 0 0.75rem crimson);
 }
