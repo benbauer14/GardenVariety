@@ -8,6 +8,7 @@
     grid-template-columns: 25% auto;
     align-items: center;
     padding-left: 10px;
+    background-color: transparent;
 }
 
 .bioInput{

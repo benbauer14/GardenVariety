@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import Autocomplete from '@material-ui/lab/Autocomplete'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
-import Select from '@material-ui/core/Select'
-import MenuItem from '@material-ui/core/MenuItem'
 import './Search.css'
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
@@ -72,7 +70,7 @@ function Search() {
               </select>
               </label>
             </p>
-      <Button onClick={() => submitSearch()}>ASDF</Button>
+      <Button onClick={() => submitSearch()}>Search</Button>
     </div>
   );
 }

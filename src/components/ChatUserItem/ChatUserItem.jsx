@@ -34,12 +34,8 @@ function ChatUserItem () {
     }
 
     const getUsersIcons = () => {
-        console.log('fellow:', fellow)
-        console.log('user:', user.username)
         setFellowIcon(getIcon(fellow))
         setUserIcon(getIcon(user.username))
-        console.log(fellowIcon)
-        console.log(userIcon)
     }
 
     useEffect(() => {getUsersIcons()}, []);

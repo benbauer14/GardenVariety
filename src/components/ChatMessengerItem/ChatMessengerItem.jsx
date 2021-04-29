@@ -1,12 +1,11 @@
 
 import DeleteIcon from '@material-ui/icons/Delete';
-import FaceIcon from '@material-ui/icons/Face';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 
 function ChatMessengerItem(){
     const messages = useSelector((store) => store.messages);
-    const user = useSelector((store) => store.user.username);
+    const user = useSelector((store) => store.user.username);  
 
     const dispatch = useDispatch();
     const history = useHistory()
@@ -18,6 +17,7 @@ function ChatMessengerItem(){
             return message.toUser
         }
     }
+
 
     const gardenerList = (messageList) => {
         //create a list of all gardeners that the user has messaged in the past
@@ -65,17 +65,22 @@ function ChatMessengerItem(){
         history.push('/fellowchat')
     }
 
+    const prettyDate = (date) =>{
+        let dbDate = date
+        return(dbDate.slice(5,7) + "/" + dbDate.slice(8,10) + "/" + dbDate.slice(0,4))
+    }
+
     return(
     <> 
         {newMessageList(messages).map(message => {
             return(
                 <div className="chatMessageListItem" onClick={() => messageClick(message)}>
                     <div className="userAvatar">
-                        <FaceIcon />
+
                     </div>
                     <div className="chatMessage">
                         <p>from: {fellowGardener(message)}</p> 
-                        <p>date: {message.whenSent}</p>
+                        <p>date: {prettyDate(message.whenSent)}</p>
                         <p>{message.message}</p>
                     </div>
                     <div className="chatTrash">
