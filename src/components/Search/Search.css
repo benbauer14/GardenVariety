@@ -8,3 +8,13 @@
     border: 1px solid black;
     margin-top: 5px;
 }
+
+.searchdiv label{
+    font-size: 20px;
+}
+.searchdiv select{
+    width: 100px;
+    float: right;
+    margin-right: 25%;
+    margin-top: 5px;
+}

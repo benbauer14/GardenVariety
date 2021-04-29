@@ -18,9 +18,9 @@ function UserPage() {
 
   return (
     <div className="container">
-      <h2>Welcome, {user.username}!</h2>
-      <div onClick={() => {history.push('/search')}}><Button color="primary">Search</Button></div>
-      <div onClick={() => {history.push('/trade')}}><Button color="primary">Trade/Sell Items</Button></div>
+      <h1>Welcome, {user.username}!</h1>
+      <div onClick={() => {history.push('/search')}}><Button variant="contained" color="primary">Search</Button></div>
+      <div onClick={() => {history.push('/trade')}}><Button variant="contained" color="primary">Trade/Sell Items</Button></div>
 
     </div>
   );

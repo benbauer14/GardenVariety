@@ -227,7 +227,7 @@ const contactClick = (listingID) => {
                                     <div className="itemTrade">
                                         {forTrade(listing)}          
                                     </div>
-                                    <div>Gardener: {listing.username}</div>
+                                    <div><h5>Gardener: {listing.username}</h5><h5>When Posted:</h5></div>
                                 </div>
                             )
                     

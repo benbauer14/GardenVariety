@@ -34,9 +34,11 @@ function Search() {
               renderInput={(params) => (
                 <TextField
                   {...params}
+                  size="medium"
                   label="Search"
                   margin="normal"
-                  variant="outlined"
+                  color="primary"
+                  variant="filled"
                   onBlur={(event) => setVeg(event.target.value)}
                   InputProps={{ ...params.InputProps, type: 'search' }}
                 />
@@ -70,7 +72,7 @@ function Search() {
               </select>
               </label>
             </p>
-      <Button onClick={() => submitSearch()}>Search</Button>
+      <Button variant="contained" color="primary" onClick={() => submitSearch()}>Search</Button>
     </div>
   );
 }
