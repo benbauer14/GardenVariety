@@ -6,13 +6,22 @@ import './Search.css'
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import moment from 'moment'
+import {makeStyles} from '@material-ui/core/styles'
 
+const useStyles =makeStyles(theme => ({
+  textField:{
+    background: "white",
+    opacity: "80%"
+  }
+}))
 
 function Search() {
   const [veg, setVeg] = useState("")
   const [trade, setTrade] = useState("")
   const [buy, setBuy] = useState("")
   const [when, setWhen] = useState("")
+  
+  const classes = useStyles();
 
   const dispatch = useDispatch()
   const history = useHistory()
@@ -37,6 +46,8 @@ function Search() {
                   size="medium"
                   label="Search"
                   margin="normal"
+                  className={classes.textField}
+                  background="primary"
                   color="primary"
                   variant="filled"
                   onBlur={(event) => setVeg(event.target.value)}
