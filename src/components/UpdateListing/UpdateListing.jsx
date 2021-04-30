@@ -1,18 +1,30 @@
-import { Box, Button, Checkbox, TextField } from "@material-ui/core"
+import { Box, Button, Checkbox, makeStyles, TextField } from "@material-ui/core"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { useHistory } from "react-router"
 
+const useStyles =makeStyles(theme => ({
+    textField:{
+      background: "white",
+      opacity: "80%",
+      border: "1px solid green",
+      margin: "5px"
+    }
+  }))
+
 function UpdateListing () {
 const listinginfo = useSelector(store => store.updatelisting)
-const [veg, setVeg] = useState("")
-const [quantity, setQuantity] = useState("")
+const [veg, setVeg] = useState(null)
+const [quantity, setQuantity] = useState(null)
 const [forsale, setForSale] = useState(true)
 const [trade, setTrade] = useState(true)
-const [tradeitem, setTradeItem] = useState("")
-const [price, setPrice] = useState("")
+const [tradeitem, setTradeItem] = useState(null)
+const [price, setPrice] = useState(null)
 const [info, setInfo] = useState(null)
+const [isloaded, setIsLoaded] = useState(false)
+
+const classes = useStyles();
 
 const renderForSale = (value) =>{
     if(value === true){
@@ -57,25 +69,6 @@ const renderForTrade= (value) =>{
 }
 const history = useHistory()
 const updateListing = () => {
-    // if(veg == ""){
-    //     console.log("in setVeg")
-    //     setVeg(listinginfo.data[0].vegetable)
-    // }
-    // if(quantity === ""){
-    //     setQuantity(listinginfo.data[0].quantity)
-    // }
-    // if(tradeitem === ""){
-    //     setTradeItem(listinginfo.data[0].trade_item)
-    // }
-    // if(info === null){
-    //     setInfo(listinginfo.data[0].info)
-    // }
-    // if(price === ""){
-    //     setPrice(listinginfo.data[0].price)
-    // }
-    const useMountEffect = () => {
-        useEffect(() => {getListingInfo()}, []);
-    }
 
     axios.put('api/listing/update/', {
         id: listinginfo.data[0].id,
@@ -94,31 +87,35 @@ const updateListing = () => {
     })
     history.push('/user')
 }
-let hasrun = 0
-const getListingInfo = () =>{
-    setVeg(listinginfo.data[0].vegetable)
-    setQuantity(listinginfo.data[0].quantity)
-    setTradeItem(listinginfo.data[0].trade_item)
-    setInfo(listinginfo.data[0].info)
-    setPrice(listinginfo.data[0].price)
 
+let initialrun = () => {
+        setVeg(listinginfo.data[0].vegetable)
+        setQuantity(listinginfo.data[0].quantity)
+        setTradeItem(listinginfo.data[0].trade_item)
+        setInfo(listinginfo.data[0].info)
+        setPrice(listinginfo.data[0].price)
+        setIsLoaded(true)
 }
 
     if(!Array.isArray(listinginfo.data)){
         return(<div>Loading...</div>)
+
     }else{
 
-        useEffect(() => {getListingInfo()}, []);
-
+        if(isloaded === false){initialrun()}
+        
         return(
+
              <div>
-             <h3>Edit Listing</h3>
+
              <div className="newListing">
+             <h2>Edit Listing</h2>
              <Box classname="newListingBox">
                  <Box className="newItem" display="flex" justifyContent="center">
                      <TextField
                        label="Item"
                        margin="normal"
+                       className={classes.textField}
                        variant="outlined"
                        size="small"
                        defaultValue={listinginfo.data[0].vegetable}
@@ -130,6 +127,7 @@ const getListingInfo = () =>{
                      label="Quantity"
                      margin="normal"
                      variant="outlined"
+                     className={classes.textField}
                      defaultValue={listinginfo.data[0].quantity}
                      style={{ width: 100 }}
                      onBlur={(event) => setQuantity(event.target.value)}
@@ -141,6 +139,7 @@ const getListingInfo = () =>{
                  {renderForSale(listinginfo.data[0].for_sale)} For Sale?  <TextField
                  label="Price"
                  margin="normal"
+                 className={classes.textField}
                  defaultValue={listinginfo.data[0].price}
                  style={{ width: 100 }}
                  variant="outlined"
@@ -157,6 +156,7 @@ const getListingInfo = () =>{
                          <TextField
                              label="Desired Trade Item"
                              margin="normal"
+                             className={classes.textField}
                              defaultValue={listinginfo.data[0].trade_item}
                              style={{ width: 200}}
                              variant="outlined"
@@ -171,6 +171,7 @@ const getListingInfo = () =>{
                      label="Other Info?"
                      margin="normal"
                      style={{ width: 300 }}
+                     className={classes.textField}
                      defaultValue={listinginfo.data[0].info}
                      multiline="true"
                      rows="2"

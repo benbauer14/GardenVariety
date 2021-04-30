@@ -48,6 +48,7 @@ const submitNew = () => {
             <Autocomplete
               freeSolox
               id="free-solo"
+              freeSolo
               disableClearable
               style={{ width: 200 }}
               options={vegetables.map((option) => option.vegetable)}
@@ -111,6 +112,7 @@ const submitNew = () => {
                 <div className="tradeAutocomplete">
                 <Autocomplete
                     id="free-solo"
+                    freeSolo
                     disableClearable
                     options={vegetables.map((option) => option.vegetable)}
                     renderInput={(params) => (

@@ -102,15 +102,16 @@ const contactClick = (listingID) => {
 
   const deleteListing = (listingID) => {
     if(confirm("Are you sure you would like to delete this listing?")){
-        setidProps(listingID)
         dispatch({type: 'DELETE_LISTING', payload: listingID})
         handleClose()
+        history.push('/search')
     }
   }
   const editListing = (listingID) => {
+        dispatch({type: "RESET_LISTINGINFO"})
         dispatch({type: 'UPDATE_LISTING', payload: listingID})
-        history.push('/updatelisting')
         handleClose()
+        history.push('/updatelisting')
     }
 
 

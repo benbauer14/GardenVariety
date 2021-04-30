@@ -57,8 +57,9 @@ router.delete('/', (req, res) => {
   router.get('/update', (req, res) => {
     const listing_id = req.query.listingid
     console.log('updateListing'+ req.query.listingid)
-    const queryText = `SELECT * FROM "usermarketitem" WHERE id='7'`
-    pool.query(queryText).then((response) => {
+    const queryText = `SELECT * FROM usermarketitem WHERE "id"=$1`
+    pool.query(queryText, [listing_id]).then((response) => {
+        console.log(response.rows)
         res.send(response.rows)
     }).catch((err) => {
         res.sendStatus(500)

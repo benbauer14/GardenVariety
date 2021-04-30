@@ -11,7 +11,9 @@ import {makeStyles} from '@material-ui/core/styles'
 const useStyles =makeStyles(theme => ({
   textField:{
     background: "white",
-    opacity: "80%"
+    opacity: "80%",
+    border: "1px solid green",
+    margin: "5px"
   }
 }))
 
@@ -22,6 +24,7 @@ function Search() {
   const [when, setWhen] = useState("")
   
   const classes = useStyles();
+
 
   const dispatch = useDispatch()
   const history = useHistory()
