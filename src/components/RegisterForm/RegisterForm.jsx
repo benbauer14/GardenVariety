@@ -96,8 +96,9 @@ function RegisterForm() {
           </label>
         </div>
         <div className="bioLabel">  
-            <input
+            <textarea
               className="bioInput"
+              rows="4"
               type="bio"
               name="bio"
               value={bio}
@@ -124,7 +125,7 @@ function RegisterForm() {
       </div>
         <div>
           <Box display="flex" justifyContent="center" className="registerBox">
-          <Button className="btn" type="submit" name="submit" onClick={() => registerUser()}>Register</Button>
+          <Button className="btn" variant="contained" color="primary" type="submit" name="submit" onClick={() => registerUser()}>Register</Button>
           </Box>
           <hr></hr>
         </div>

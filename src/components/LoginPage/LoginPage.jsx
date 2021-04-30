@@ -13,6 +13,8 @@ function LoginPage() {
       <Box display="flex" justifyContent="center">
         <Button 
         type="button"
+        color="primary" 
+        variant="contained" 
         className="btn btn_asLink"
         onClick={() => {
           history.push('/registration');

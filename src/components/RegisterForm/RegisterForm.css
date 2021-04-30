@@ -13,7 +13,7 @@
 
 .bioInput{
     height: 100px;
-    width: 80%;
+    width: 82%;
 }
 
 .registrationForm input{
@@ -28,8 +28,17 @@ h3{
     margin: 3px;
 }
 
+.icons{
+    display: flex;
+    flex-flow: wrap;
+}
+
 .registerBox Button{
     width: 30%;
     border: 1px solid black;
     margin: 5px;
+}
+
+.bioLabel{
+    margin-left: 5px;
 }

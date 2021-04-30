@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import moment from 'moment'
 import {makeStyles} from '@material-ui/core/styles'
+import { Box } from '@material-ui/core';
 
 const useStyles =makeStyles(theme => ({
   textField:{
@@ -38,6 +39,7 @@ function Search() {
   }
   return (
     <div className="searchdiv">
+      <h2>Search</h2>
       <Autocomplete
               freeSolo
               id="free-solo"
@@ -86,7 +88,9 @@ function Search() {
               </select>
               </label>
             </p>
-      <Button variant="contained" color="primary" onClick={() => submitSearch()}>Search</Button>
+            <Box display="flex" alignItems="center" justifyContent="center">
+              <Button variant="contained" color="primary" onClick={() => submitSearch()}>Search</Button>
+            </Box>
     </div>
   );
 }

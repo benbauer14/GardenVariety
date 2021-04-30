@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import {useSelector} from 'react-redux';
 import './LoginForm.css'
 
+
 function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -59,7 +60,7 @@ function LoginForm() {
           />
         </Box>
       <Box display="flex" justifyContent="center">
-        <Button className="btn" type="submit" name="submit" color="primary">Login</Button>
+        <Button color="primary" variant="contained" type="submit" name="submit" color="primary">Login</Button>
       </Box>
     </form>
   );

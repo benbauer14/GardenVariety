@@ -1,12 +1,14 @@
 .searchdiv{
     width: 90%;
     margin-left: 5%;
+    align-items: center;
 }
 
 .searchdiv Button{
-    width: 100%;
+    width: 30%;
     border: 1px solid black;
     margin-top: 5px;
+    align-self: center;
 }
 
 .searchdiv label{
@@ -17,4 +19,8 @@
     float: right;
     margin-right: 25%;
     margin-top: 5px;
+}
+
+.searchdiv h2{
+    text-align: center;
 }
