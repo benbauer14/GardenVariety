@@ -60,6 +60,11 @@ function getModalStyle() {
     setOpen(false);
   };
 
+  const prettyDate = (dateinput) => {
+    let dbDate = dateinput
+    return(dbDate.slice(5,7) + "/" + dbDate.slice(8,10) + "/" + dbDate.slice(0,4))
+  }
+
 //END MODAL CODE
 
 const dispatch = useDispatch()
@@ -238,7 +243,7 @@ const contactClick = (listingID) => {
                                     <div className="itemTrade">
                                         {forTrade(listing)}          
                                     </div>
-                                    <div><h5>Gardener: {listing.username}</h5><h5>When Posted:</h5></div>
+                                    <div><h5>Gardener: {listing.username}</h5><h5>When Posted: {prettyDate(listing.when_posted)}</h5></div>
                                 </div>
                             )
                     

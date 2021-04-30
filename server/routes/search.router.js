@@ -57,7 +57,7 @@ router.get('/', (req, res) => {
             sanitizedArray.push(when)
         }
     }
-    pool.query(queryText + ";", sanitizedArray).then((response) => {
+    pool.query(queryText + `ORDER BY "when_posted" DESC;`, sanitizedArray).then((response) => {
         res.send(response);
     }).catch((err) => {
         res.sendStatus(500)
