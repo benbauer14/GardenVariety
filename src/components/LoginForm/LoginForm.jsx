@@ -1,15 +1,26 @@
 import { Box, Button, TextField } from '@material-ui/core';
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useStore } from 'react-redux';
 import {useSelector} from 'react-redux';
+import {makeStyles} from '@material-ui/core/styles'
 import './LoginForm.css'
 
+const useStyles = makeStyles(theme => ({
+  textField:{
+    background: "white",
+    opacity: "80%",
+    border: "1px solid green",
+    margin: "5px"
+  }
+}))
 
 function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const errors = useSelector(store => store.errors);
   const dispatch = useDispatch();
+
+  const classes = useStyles();
 
   const login = (event) => {
     event.preventDefault();
@@ -39,6 +50,7 @@ function LoginForm() {
           <TextField 
             label="Username"
             margin="normal"
+            className={classes.textField}
             variant="outlined"
             type="text"
             name="username"
@@ -54,6 +66,7 @@ function LoginForm() {
             variant="outlined"
             type="password"
             name="password"
+            className={classes.textField}
             required
             value={password}
             onChange={(event) => setPassword(event.target.value)}
