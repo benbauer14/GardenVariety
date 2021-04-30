@@ -6,10 +6,16 @@
     flex-direction: rows; */
 }
 
-.newListing{
-    padding:15px;
+.newListingButton{
+    width: 30%;
+    border: 1px solid black;
+    margin-top: 5px;
 }
 
-.forTradeCheckbox{
-    height: 150px;
+.newListing{ 
+    text-align: center;
+}
+
+.Textfield{
+    border: 1px black solid;
 }

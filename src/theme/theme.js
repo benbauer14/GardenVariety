@@ -13,12 +13,9 @@ const theme = createMuiTheme({
     },
   },
   overrides:{
-    TextField:{
-      palette:{
-        background:{
-          default: green[900],
-        }
-      }
+    textField:{
+      background: "white",
+      opacity: "80%"
     }
   }
 });

@@ -5,6 +5,17 @@ import TextField from '@material-ui/core/TextField'
 import { Box, Button, Checkbox } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
+import {makeStyles} from '@material-ui/core/styles'
+import './NewListing.css'
+
+const useStyles =makeStyles(theme => ({
+    textField:{
+      background: "white",
+      opacity: "80%",
+      border: "1px solid green",
+      margin: "5px"
+    }
+  }))
 
 function NewListing () {
 const [veg, setVeg] = useState("")
@@ -14,6 +25,8 @@ const [trade, setTrade] = useState(true)
 const [tradeitem, setTradeItem] = useState("")
 const [price, setPrice] = useState("")
 const [info, setInfo] = useState("")
+
+const classes = useStyles();
 
 const userid = useSelector((store => store.user.id))
 
@@ -27,8 +40,8 @@ const submitNew = () => {
 
     return (
         <>
-        <h3>List New Item</h3>
         <div className="newListing">
+        <h2>List New Item</h2>
         <Box classname="newListingBox">
             <div className="newItem">
             <Box className="newItem" display="flex" justifyContent="center">
@@ -44,6 +57,7 @@ const submitNew = () => {
                   label="Item"
                   margin="normal"
                   variant="outlined"
+                  className={classes.textField}
                   size="small"
                   onBlur={(event) => setVeg(event.target.value)}
                   InputProps={{ ...params.InputProps, type: 'search' }}
@@ -58,6 +72,7 @@ const submitNew = () => {
                 label="Quantity"
                 margin="normal"
                 variant="outlined"
+                className={classes.textField}
                 style={{ width: 100 }}
                 onBlur={(event) => setQuantity(event.target.value)}
                 type="number"
@@ -75,6 +90,7 @@ const submitNew = () => {
             label="Price"
             margin="normal"
             style={{ width: 100 }}
+            className={classes.textField}
             variant="outlined"
             onBlur={(event) => setPrice(event.target.value)}
             type="number"
@@ -102,7 +118,8 @@ const submitNew = () => {
                         {...params}
                         label="Desired Trade Item"
                         margin="normal"
-                        style={{ width: 200}}
+                        style={{ width: 185}}
+                        className={classes.textField}
                         variant="outlined"
                         size="small"
                         onBlur={(event) => setTradeItem(event.target.value)}
@@ -119,7 +136,8 @@ const submitNew = () => {
                 label="Other Info?"
                 margin="normal"
                 style={{ width: 300 }}
-                multiline="true"
+                multiline={true}
+                className={classes.textField}
                 rows="2"
                 variant="outlined"
                 onBlur={(event) => setInfo(event.target.value)}
@@ -130,7 +148,7 @@ const submitNew = () => {
             </div>
             </Box>
             <Box display="flex" alignItems="center" justifyContent="center">
-                <Button color="primary" onClick={() => submitNew()}>Submit</Button>
+                <Button color="primary" variant="contained" className="newListingButton" onClick={() => submitNew()}>Submit</Button>
             </Box>
         </div>
            
