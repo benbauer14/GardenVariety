@@ -30,7 +30,7 @@ function LandingPage() {
         <div className="grid-col grid-col_4">
             <Box>
             <h5>New Gardener?</h5>
-            <div onClick={() => {history.push('/register')}}><Button variant="contained" color="primary">Register</Button></div>
+            <div onClick={() => {history.push('/registration')}}><Button variant="contained" color="primary">Register</Button></div>
             </Box>
             <Box>
             <h5>Already a Member?</h5>
