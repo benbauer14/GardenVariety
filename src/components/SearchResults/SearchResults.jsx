@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button'
 import { useHistory } from 'react-router';
+import { Search } from '@material-ui/icons';
 
 
 function SearchResults () {
@@ -48,6 +49,7 @@ function getModalStyle() {
   const [tradeItem, setTradeItem]  = useState('')
   const [info, setInfo] = useState('') 
   const [when, setWhen] = useState('')
+  const [quantity, setQuantity] = useState('')
   const [buttondisplay, setButtonDisplay] = useState('')
 
   const handleOpen = () => {
@@ -83,6 +85,7 @@ const contactClick = (listingID) => {
       <p id="simple-modal-description">
         <h4>Item: {item}</h4>
         <p>Gardener: {gardener}</p>
+        <p>Quantity: {quantity}</p>
         {saleInfo}
         {tradeInfo}
         <p>Extra Info: {info}</p>
@@ -94,11 +97,17 @@ const contactClick = (listingID) => {
 
   const deleteListing = (listingID) => {
     if(confirm("Are you sure you would like to delete this listing?")){
-        console.log(listingID)
+        setidProps(listingID)
         dispatch({type: 'DELETE_LISTING', payload: listingID})
         handleClose()
     }
   }
+  const editListing = (listingID) => {
+        dispatch({type: 'UPDATE_LISTING', payload: listingID})
+        history.push('/updatelisting')
+        handleClose()
+    }
+
 
     const forSale = (listing) =>{
         if(listing.for_sale == true){
@@ -140,6 +149,7 @@ const contactClick = (listingID) => {
         setTrade(searchlisting[listingID].trade)
         setTradeItem(searchlisting[listingID].trade_item)
         setInfo(searchlisting[listingID].info)
+        setQuantity(searchlisting[listingID].quantity)
 
         //set values for trade and for sale
         if(searchlisting[listingID].for_sale === true){
@@ -179,7 +189,8 @@ const contactClick = (listingID) => {
         if(searchlisting[listingID].username === user){
             setButtonDisplay( 
                 <>
-           <p>This is your listing. Would you like to delete?</p>
+           <p>This is your listing. Would you like to edit or delete?</p>
+           <Button color="secondary" onClick={() => {editListing(searchlisting[listingID].id)}}>Edit</Button>
            <Button color="secondary" onClick={() => {deleteListing(searchlisting[listingID].id)}}>Delete</Button>
            </>
            )

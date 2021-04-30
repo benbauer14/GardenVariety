@@ -17,7 +17,6 @@ function LandingPage() {
   return (
     <div className="container">
       <img width="200px" height="175px" src='/images/GardenVarietyLogo.png' alt="Garden Variety Logo"/>
-      <img src='/images/avatars/011-tomato.png' width="35px"/>
       <h2>{heading}</h2>
 
       <div className="grid">

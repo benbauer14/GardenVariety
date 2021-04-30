@@ -53,5 +53,27 @@ router.delete('/', (req, res) => {
       })
   });  
 
+  
+  router.get('/update', (req, res) => {
+    const listing_id = req.query.listingid
+    console.log('updateListing'+ req.query.listingid)
+    const queryText = `SELECT * FROM "usermarketitem" WHERE id='7'`
+    pool.query(queryText).then((response) => {
+        res.send(response.rows)
+    }).catch((err) => {
+        res.sendStatus(500)
+        console.log(err)
+    })
+});
 
+router.put('/update', (req,res) => {
+    console.log(req.body)
+    const queryText = `UPDATE "usermarketitem" SET "vegetable"=$1, "quantity"=$2, trade=$3, "trade_item"=$4, for_sale=$5, "price"=$6, "info"=$7  WHERE "id"=$8`
+    pool.query(queryText, [req.body.veg, req.body.quantity, req.body.trade, req.body.tradeitem, req.body.forsale, req.body.price, req.body.info, req.body.id]).then((response) => {
+        res.sendStatus(200)
+    }).catch((err) => {
+        console.log(err)
+        res.sendStatus(500)
+    })
+})
 module.exports = router;

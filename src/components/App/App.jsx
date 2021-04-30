@@ -24,6 +24,7 @@ import FellowChat from '../ChatUser/ChatUser'
 import SearchResults from '../SearchResults/SearchResults'
 import ListingInfo from '../ListingInfo/ListingInfo'
 import NewListing from '../NewListing/NewListing'
+import UpdateListing from '../UpdateListing/UpdateListing'
 
 import './App.css';
 
@@ -79,6 +80,9 @@ function App() {
           </ProtectedRoute>
           <ProtectedRoute exact path='/searchresults'>
             <SearchResults/>
+          </ProtectedRoute>
+          <ProtectedRoute exact path='/updatelisting'>
+            <UpdateListing/>
           </ProtectedRoute>
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
