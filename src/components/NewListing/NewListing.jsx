@@ -42,11 +42,11 @@ const submitNew = () => {
         <>
         <div className="newListing">
         <h2>List New Item</h2>
-        <Box classname="newListingBox">
+        <Box className="newListingBox">
             <div className="newItem">
             <Box className="newItem" display="flex" justifyContent="center">
             <Autocomplete
-              freeSolox
+              freeSolo
               id="free-solo"
               freeSolo
               disableClearable

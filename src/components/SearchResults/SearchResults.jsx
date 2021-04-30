@@ -196,13 +196,13 @@ const contactClick = (listingID) => {
             setButtonDisplay( 
                 <>
            <p>This is your listing. Would you like to edit or delete?</p>
-           <Button color="secondary" onClick={() => {editListing(searchlisting[listingID].id)}}>Edit</Button>
-           <Button color="secondary" onClick={() => {deleteListing(searchlisting[listingID].id)}}>Delete</Button>
+           <Button color="primary" variant="contained" onClick={() => {editListing(searchlisting[listingID].id)}}>Edit</Button>
+           <Button color="primary" variant="contained" onClick={() => {deleteListing(searchlisting[listingID].id)}}>Delete</Button>
            </>
            )
        }else{
            setButtonDisplay(
-         <Button color="primary" onClick={() => {contactClick(listingID)}}>Contact</Button>
+         <Button color="primary" variant="contained" onClick={() => {contactClick(listingID)}}>Contact</Button>
            )
        }
 
@@ -220,7 +220,7 @@ const contactClick = (listingID) => {
             return(<p>Loading...</p>)
         } else{
             return(
-                <> 
+                <div className="main">
                     <Modal
                         open={open}
                         onClose={handleClose}
@@ -252,7 +252,7 @@ const contactClick = (listingID) => {
             
                     </div>
                 </div>
-                </>
+                </div> 
         )
         }
     }

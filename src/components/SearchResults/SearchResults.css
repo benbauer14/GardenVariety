@@ -32,3 +32,9 @@
     width:35px;
     height: 35px;
 }
+.main Button{
+    width: 100%;
+    border: 1px solid black;
+    margin-top: 5px;
+    margin-left: 10px;
+}
