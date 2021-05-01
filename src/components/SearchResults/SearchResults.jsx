@@ -119,13 +119,13 @@ const contactClick = (listingID) => {
         if(listing.for_sale == true){
             return(
                 <>
-                <img src='/images/sale.png'/>
+                <img src='/images/sale.png' alt="for sale"/>
                 </>
             )
             }else{
             return(
                 <>
-                <img src='/images/notsale.png'/>
+                <img src='/images/notsale.png' alt="not for sale"/>
                 </>
             )
             } 
@@ -134,13 +134,13 @@ const contactClick = (listingID) => {
         if(listing.trade == true){
             return(
                 <>
-                <img src='/images/trade.png'/>
+                <img src='/images/trade.png' alt="for trade"/>
                 </>
             )
             }else{
             return(
                 <>
-                <img src='/images/nottrade.png'/>
+                <img src='/images/nottrade.png' alt="not for trade"/>
                 </>
             )
             } 
@@ -230,6 +230,9 @@ const contactClick = (listingID) => {
                         {body}
                     </Modal>
                 <div className="searchResultsMain">
+                    <div className="searchListingResult">
+                        <div><h6>Item</h6></div><div><h6>For Sale?</h6></div><div><h6>For Trade?</h6></div><div><h6>Info</h6></div>
+                    </div>
                     <div className="searchResults">
                     {searchlisting.map((listing, index) => {
                             return(

@@ -9,24 +9,31 @@
     max-height: 80vh;
 }
 .searchResults p{
-    font-size: 15px;
+    font-size: 10px;
+}
+
+.searchResults h5{
+    font-size: 12px;
 }
 
 .searchListingResult{
     display: grid;
-    grid-template-rows: auto auto;
-    grid-template-columns: 15% 15% auto;
+    /* grid-template-rows: auto; */
+    grid-template-columns: 25% 12% 12% auto;
     align-items: center;
     width: 100%;
     border: solid 1px black;
+    padding-left: 10px;
+    background-color: white;
+    opacity: 85%;
 }
 
-.itemInfo{
+/* .itemInfo{
     grid-column-start: 1;
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 1;
-}
+} */
 
 .itemSale img, .itemTrade img{
     width:35px;
@@ -37,4 +44,10 @@
     border: 1px solid black;
     margin-top: 5px;
     margin-left: 10px;
+}
+
+.searchListingResult h6{
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 5px;
 }
