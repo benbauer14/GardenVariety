@@ -46,7 +46,7 @@ return(
         </div>
         <div className="messageReplyMain">
             <input className="chatInput" type="text" playholder="Reply" value={message} onChange={(event) => setMessage(event.target.value)}></input>
-            <Button color="primary" size='small' onClick={()=>{postReply()}}>Send</Button>
+            <Button color="primary" variant="contained" size='small' onClick={()=>{postReply()}}>Send</Button>
         </div>
     </div>
 )

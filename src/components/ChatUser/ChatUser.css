@@ -2,6 +2,8 @@
     height: 90%;
     max-height: 90%;
     overflow-y: scroll; 
+    background-color: rgb(245, 231, 212);
+    opacity: 80%;
 }
 
 .messageReplyMain{
@@ -27,4 +29,14 @@
 
 .messageReplyMain{
     border: 1px solid black;
+}
+
+.chatuserHeader{
+    background-color: rgb(245, 231, 212);
+    opacity: 85%;
+}
+
+.messageReplyMain{
+    background-color: rgb(245, 231, 212);
+    opacity: 85%;
 }

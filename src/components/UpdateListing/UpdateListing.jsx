@@ -184,7 +184,7 @@ let initialrun = () => {
                  </div>
                  </Box>
                  <Box display="flex" alignItems="center" justifyContent="center">
-                     <Button color="primary" onClick={() => updateListing()}>Submit</Button>
+                     <Button color="primary" variant="contained" onClick={() => updateListing()}>Update</Button>
                  </Box>
              </div>
                 

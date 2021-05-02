@@ -3,6 +3,8 @@
     flex-direction: column;
     justify-content: center;
     align-content: center;
+    background-color: rgb(245, 231, 212);
+    opacity: 85%
 }
 
 .container Button{
