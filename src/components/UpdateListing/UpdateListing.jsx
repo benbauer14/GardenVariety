@@ -26,8 +26,8 @@ const [isloaded, setIsLoaded] = useState(false)
 
 const classes = useStyles();
 
-const renderForSale = (value) =>{
-    if(value === true){
+const renderForSale = () =>{
+    if(forsale === true){
         return(
             <Checkbox
             defaultChecked
@@ -36,7 +36,6 @@ const renderForSale = (value) =>{
         /> 
         )
     }else{
-        setForSale(false)
         return(
             <Checkbox
             indeterminate={false}
@@ -47,8 +46,8 @@ const renderForSale = (value) =>{
     }
 }
 
-const renderForTrade= (value) =>{
-    if(value === true){
+const renderForTrade= () =>{
+    if(trade === true){
         return(
             <Checkbox
             defaultChecked
@@ -57,7 +56,6 @@ const renderForTrade= (value) =>{
         /> 
         )
     }else{
-        setForSale(false)
         return(
             <Checkbox
             indeterminate={false}
@@ -89,12 +87,15 @@ const updateListing = () => {
 }
 
 let initialrun = () => {
+        console.log(isloaded)
+        setIsLoaded(true)
         setVeg(listinginfo.data[0].vegetable)
         setQuantity(listinginfo.data[0].quantity)
         setTradeItem(listinginfo.data[0].trade_item)
         setInfo(listinginfo.data[0].info)
         setPrice(listinginfo.data[0].price)
-        setIsLoaded(true)
+        setForSale(listinginfo.data[0].for_sale)
+        setTrade(listinginfo.data[0].trade)
 }
 
     if(!Array.isArray(listinginfo.data)){
