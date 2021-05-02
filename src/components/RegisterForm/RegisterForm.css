@@ -9,6 +9,7 @@
     align-items: center;
     padding-left: 10px;
     background-color: transparent;
+    
 }
 
 .bioInput{
@@ -41,4 +42,10 @@ h3{
 
 .bioLabel{
     margin-left: 5px;
+}
+
+.registrationMain{
+    background-color: rgb(245, 231, 212);
+    opacity: 85%;
+    padding-top: 5px;
 }
