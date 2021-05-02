@@ -39,7 +39,10 @@ router.delete('/', (req, res) => {
       const trade = req.body.trade
       const trade_item = req.body.tradeitem
       const for_sale = req.body.forsale
-      const price = req.body.price
+      let price = req.body.price
+      if(price === ""){
+          price = null
+      }
       const info = req.body.info
 
       console.log('newListing', req.body)

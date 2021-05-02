@@ -145,6 +145,17 @@ const contactClick = (listingID) => {
             )
             } 
     }
+    const tradeItemDOM = (listing) =>{
+    if(listing.trade_item === ""){
+        return(<></>)
+    }else{
+        return(
+            <>
+            <h5>Trade Item: {listing.trade_item}</h5>
+            </>
+        )
+    }
+}   
 
     const resultClicked = (listingID) => {
         //grab values for clicked item for modal
@@ -212,6 +223,9 @@ const contactClick = (listingID) => {
 
         handleOpen()
     }
+        
+
+
 
     const checkLoad = () =>{
         //checks if data is available. If not, it displays loading. Once data is available, the data is displayed. 
@@ -247,7 +261,7 @@ const contactClick = (listingID) => {
                                     <div className="itemTrade">
                                         {forTrade(listing)}          
                                     </div>
-                                    <div><h5>Gardener: {listing.username}</h5><h5>When Posted: {prettyDate(listing.when_posted)}</h5></div>
+                                    <div>{tradeItemDOM(listing)}<h5>Posted: {prettyDate(listing.when_posted)}</h5><h5>Gardener: {listing.username}</h5></div>
                                 </div>
                             )
                     

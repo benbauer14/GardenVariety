@@ -15,6 +15,7 @@ function LoginPage() {
         type="button"
         color="primary" 
         variant="contained" 
+        opacity= "85%"
         className="btn btn_asLink"
         onClick={() => {
           history.push('/registration');
