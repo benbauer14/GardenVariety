@@ -5,7 +5,7 @@ This application is designed to allow local gardeners the ability to trade or se
 
 This application was presented on Facebook live and Zoom on 5/3/2021. 
 
-<img src="Garden Variety/public/images/Screen Shot 2021-05-04 at 9.26.09 AM.png"/>
+<img src="/public/images/Screen Shot 2021-05-04 at 9.26.09 AM.png"/>
 
 ## Technologies
 
