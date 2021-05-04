@@ -35,6 +35,7 @@ function Search() {
     history.push('/searchresults')
   }
   const dateSubtract = (numofdays) => {
+    //determine date when current date is subtracted from numofdays
     return(moment().subtract(numofdays, 'days').format('L'))
   }
   return (

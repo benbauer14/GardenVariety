@@ -10,10 +10,6 @@ function LandingPage() {
   const [heading, setHeading] = useState('Welcome!!!');
   const history = useHistory();
 
-  const onLogin = (event) => {
-
-  };
-
   return (
     <div className="container">
       <img width="200px" height="175px" src='/images/GardenVarietyLogo.png' alt="Garden Variety Logo"/>

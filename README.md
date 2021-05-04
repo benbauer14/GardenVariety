@@ -3,32 +3,30 @@
 
 This application is designed to allow local gardeners the ability to trade or sell any extra fruits or veggies. There is an integrated chat functionality that allowers gardeners to interact and determine meeting times and locations. It is easy to browse the available listings and determine what is available. Listing items on the market is as simple as a few clicks. 
 
+This application was presented on Facebook live and Zoom on 5/3/2021. 
+
+<img src="Garden Variety/public/images/Screen Shot 2021-05-04 at 9.26.09 AM.png"/>
+
 ## Technologies
 
 Javascript
-HTML
-CSS
-Material UI
-React
-Redux
-Saga
-Express
-Node
-Postgres
+- HTML
+- CSS
+- Material UI
+- React
+- Redux
+- Saga
+- Express
+- Node
+- Postgres
+
+<img src="public/images/Splash.png"/>
+<img src="public/images/Search.png"/>
+<img src="public/images/SearchResults.png"/>
+<img src="public/images/SearchModal.png"/>
+<img src="public/images/Chat.png"/>
+<img src="public/images/NewListing.png"/>
 
 
-BUGS LIST
-[x] Chat does not autorefresh - Dispatch was not in the correct Saga. Needed to update the action to make sure the correct data was transmitted.
-[x] Delete listing does not work - Server and app needed restart. Updates were not in sync.
-[x] Chat misidentifying the other gardener 50% of the time - Called for user instead of user.username so conditional was never met.
-[x] Formatting of Material UI items does not respond to div formatting - use <Box>
 
-ToDo
-[] Make page persistent on reload
-[x] style login
-[x] style chat
-[] style new listing
-[] style search page
-[x] style register page
-[] add profile update page
-[x] add avatars
+

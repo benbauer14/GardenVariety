@@ -19,6 +19,7 @@ function ChatUser (){
     }
 
     const fellowGardener = (message) => {
+        //determine fellow gardener to sort messages
         if(!Array.isArray(chatuser)){
             return(<p>Loading...</p>)
         }

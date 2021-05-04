@@ -13,6 +13,7 @@ function ChatUserItem () {
 
 
     const updateUnread = (id) => {
+        //updates unread once a string of messages is opened
         axios.put('/api/chat/?unread=' + id).then((response) => {
             console.log("Unread updated", response)
         }).catch((err) => {
@@ -21,6 +22,7 @@ function ChatUserItem () {
     }
 
     const getIcon = () => {
+        //loads icons for each user
         axios.get('/api/icons/usericon/?user='+ user.username ).then((response) => {
             setUserIcon(response.data[0].path)
         }).catch((err) => {

@@ -12,6 +12,8 @@ function ChatMessenger () {
     const dispatch = useDispatch()
     
     useEffect(() => {getMessages();}, []);
+
+    //load messages
     const getMessages = () =>{
         dispatch({type:'FETCH_MESSAGES', payload: user.username})
         dispatch({type:'FETCH_UNREAD', payload: user.username})
